@@ -47,12 +47,13 @@ public class TwitterBot {
 
             // get a random tweet from those results
             Status tweetResult = result.getTweets().get((int) (result.getCount() * Math.random()));
-
+            System.out.println("Selected tweet: " + tweetResult.getText());
             // reply to that tweet, choose from random replies
             StatusUpdate statusUpdate = new StatusUpdate(".@"
                     + tweetResult.getUser().getScreenName()
                     + replies.get((int) (replies.size() * Math.random())));
             statusUpdate.inReplyToStatusId(tweetResult.getId());
+            System.out.println("Selected Response: " + statusUpdate.getStatus());
             Status status = twitter.updateStatus(statusUpdate);
             System.out.println("Sleeping.");
 
