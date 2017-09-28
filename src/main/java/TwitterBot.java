@@ -45,8 +45,8 @@ public class TwitterBot {
             // get the results from that search
             QueryResult result = twitter.search(query);
 
-            // get the first tweet from those results
-            Status tweetResult = result.getTweets().get(0);
+            // get a random tweet from those results
+            Status tweetResult = result.getTweets().get((int) (result.getCount() * Math.random()));
 
             // reply to that tweet, choose from random replies
             StatusUpdate statusUpdate = new StatusUpdate(".@"
